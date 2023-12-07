@@ -34,7 +34,11 @@
           'label-warning': demand.status == 'Pending',}">
             {{ demand.status }}
           </span></td>
-          <td></td>
+          <td>
+            <span *ngIf="demand.status == 'Pending'">
+              <button (click)="updateStatus(demand)"><i class="icofont icofont-check-circled"></i></button>
+            </span>
+          </td>
         </tr>
         </tbody>
       </table>

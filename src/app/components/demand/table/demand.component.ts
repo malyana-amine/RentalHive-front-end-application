@@ -7,7 +7,7 @@ import {Subscription} from "rxjs";
   templateUrl: './demand.component.html',
   styleUrls: ['./demand.component.css']
 })
-export class DemandComponent implements OnInit, OnDestroy{
+export class DemandComponent implements OnInit, OnDestroy {
   private _sub!: Subscription;
   demands: any[] = [];
 
@@ -23,5 +23,22 @@ export class DemandComponent implements OnInit, OnDestroy{
 
   ngOnDestroy(): void {
     this._sub.unsubscribe();
+  }
+
+  updateStatus(demand: any): void {
+    this.demandService.updateDemand({
+      "id": demand.id,
+      "status": demand.status,
+      "user": {
+        "id": demand.user.id
+      }
+    }).subscribe(
+      data => {},
+      err => console.error(err),
+      () => {
+        demand.status = "Approved";
+        this.demands.map(obj => obj.id == demand.id ? demand : obj);
+      }
+    );
   }
 }

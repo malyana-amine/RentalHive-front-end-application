@@ -17,6 +17,14 @@ export class DemandService {
     )
   }
 
+  updateDemand(demand: any): Observable<any> {
+    demand.status = "Approved";
+    return this._http.put(this.url + `/${demand.id}`, demand).pipe(
+      tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
 
