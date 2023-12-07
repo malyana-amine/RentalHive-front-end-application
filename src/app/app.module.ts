@@ -6,11 +6,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/register-form/register-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DemandComponent } from './components/demand/demand.component';
+import { EquipmentComponent } from './components/equipment/equipment.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegistrationComponent,
+    DashboardComponent,
+    DemandComponent,
+    EquipmentComponent,
   ],
   imports: [
     BrowserModule,
