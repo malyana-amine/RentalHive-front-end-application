@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegistrationComponent } from './components/register-form/register-form.component';
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {EquipmentComponent} from "./components/equipment/equipment.component";
-import {DemandComponent} from "./components/demand/demand.component";
+import {DemandComponent} from "./components/demand/table/demand.component";
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent },

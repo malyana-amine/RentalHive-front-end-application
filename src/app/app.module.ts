@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { RegistrationComponent } from './components/register-form/register-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { DemandComponent } from './components/demand/demand.component';
+import { DemandComponent } from './components/demand/table/demand.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 
 @NgModule({
@@ -22,8 +22,6 @@ import { EquipmentComponent } from './components/equipment/equipment.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    BrowserModule,
-    FormsModule, 
     AppRoutingModule,
   ],
   providers: [],
