@@ -25,7 +25,9 @@
         </thead>
         <tbody>
         <tr *ngFor="let demand of demands">
-          <th>{{ demand.id }}</th>
+          <th>
+            <a [routerLink]="['/dashboard/demand', demand.id]">{{ demand.id }}</a>
+          </th>
           <td>{{ demand.user.username }}</td>
           <td>{{ demand.demandedEquipments.length }}</td>
           <td><span class="label" [ngClass]="{

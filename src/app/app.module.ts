@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DemandComponent } from './components/demand/table/demand.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
+import { DemandDetailsComponent } from './components/demand/demand-details/demand-details.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { EquipmentComponent } from './components/equipment/equipment.component';
     DashboardComponent,
     DemandComponent,
     EquipmentComponent,
+    DemandDetailsComponent,
   ],
   imports: [
     BrowserModule,

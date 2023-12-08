@@ -26,13 +26,7 @@ export class DemandComponent implements OnInit, OnDestroy {
   }
 
   updateStatus(demand: any): void {
-    this.demandService.updateDemand({
-      "id": demand.id,
-      "status": demand.status,
-      "user": {
-        "id": demand.user.id
-      }
-    }).subscribe(
+    this.demandService.updateDemand(demand).subscribe(
       data => {},
       err => console.error(err),
       () => {

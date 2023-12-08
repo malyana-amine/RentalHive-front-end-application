@@ -4,6 +4,7 @@ import { RegistrationComponent } from './components/register-form/register-form.
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {EquipmentComponent} from "./components/equipment/equipment.component";
 import {DemandComponent} from "./components/demand/table/demand.component";
+import {DemandDetailsComponent} from "./components/demand/demand-details/demand-details.component";
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       {path: "equipment", component: EquipmentComponent},
       {path: "demand", component: DemandComponent},
+      {path: "demand/:id", component: DemandDetailsComponent},
       {path: "", redirectTo: "equipment", pathMatch: "full"}
     ]
   }
