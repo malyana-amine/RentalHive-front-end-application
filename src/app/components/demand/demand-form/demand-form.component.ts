@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
+import {DemandService} from "../../../services/demand/demand.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-demand-form',
@@ -9,7 +11,8 @@ import {FormArray, FormBuilder, FormGroup} from "@angular/forms";
 export class DemandFormComponent implements OnInit {
   demandForm!: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private _demandService: DemandService, private _router: Router) {
+  }
 
   ngOnInit(): void {
     this.demandForm = this.fb.group({
@@ -56,5 +59,13 @@ export class DemandFormComponent implements OnInit {
     };
 
     console.log(result);
+
+    this._demandService.createDemand(result).subscribe(
+      data => console.log(data),
+      err => console.error(err),
+      () => {
+        this._router.navigate(["/dashboard/demand"]);
+      }
+    )
   }
 }

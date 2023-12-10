@@ -32,6 +32,19 @@ export class DemandService {
     );
   }
 
+  createDemand(demand: any): Observable<any> {
+    const formData = new FormData();
+    formData.append('userId', demand.userId);
+    formData.append('equipmentIds', demand.equipmentIds);
+    formData.append('startDateList', demand.startDateList);
+    formData.append('endDateList', demand.endDateList);
+
+    return this._http.post(this.url + `/add`, formData).pipe(
+      tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
 

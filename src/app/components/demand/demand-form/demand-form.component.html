@@ -11,12 +11,12 @@
       <div *ngFor="let equipmentGroup of equipment.controls; let i = index" class="row" [formGroupName]="i">
         <div class="form-group col-3">
           <label for="equipmentId">Equipment {{ i + 1 }}</label>
-          <select
+          <input
+            type="text"
             id="equipmentId"
             formControlName="equipmentId"
             class="form-control"
-          >
-          </select>
+          />
         </div>
         <div class="form-group col-3">
           <label for="startDate">Start Date:</label>
