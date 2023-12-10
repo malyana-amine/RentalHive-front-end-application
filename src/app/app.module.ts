@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // Add this line
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { DemandComponent } from './components/demand/table/demand.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { DemandDetailsComponent } from './components/demand/demand-details/demand-details.component';
+import { DemandFormComponent } from './components/demand/demand-form/demand-form.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +20,14 @@ import { DemandDetailsComponent } from './components/demand/demand-details/deman
     DemandComponent,
     EquipmentComponent,
     DemandDetailsComponent,
+    DemandFormComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -5,6 +5,7 @@ import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {EquipmentComponent} from "./components/equipment/equipment.component";
 import {DemandComponent} from "./components/demand/table/demand.component";
 import {DemandDetailsComponent} from "./components/demand/demand-details/demand-details.component";
+import {DemandFormComponent} from "./components/demand/demand-form/demand-form.component";
 
 const routes: Routes = [
   { path: '', component: RegistrationComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
       {path: "equipment", component: EquipmentComponent},
       {path: "demand", component: DemandComponent},
       {path: "demand/:id", component: DemandDetailsComponent},
+      {path: "demand-form", component: DemandFormComponent},
       {path: "", redirectTo: "equipment", pathMatch: "full"}
     ]
   }
