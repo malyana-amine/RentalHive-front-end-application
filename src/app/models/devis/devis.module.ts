@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {Devis} from "../../services/devis.service";
+import {Devis} from "../../services/devis/devis.service";
 
 @NgModule({
   declarations: [],

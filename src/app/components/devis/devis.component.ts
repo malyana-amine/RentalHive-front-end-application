@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Devis, DevisService} from "../../services/devis.service";
+import {Devis, DevisService} from "../../services/devis/devis.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-devis',
@@ -7,13 +8,21 @@ import {Devis, DevisService} from "../../services/devis.service";
   styleUrls: ['./devis.component.css']
 })
 export class DevisComponent implements OnInit{
+
+  public devises:Devis[] = [];
+
   constructor(private devisService:DevisService) {
   }
-  devises:Devis[] = [];
+
   ngOnInit() {
-    this.devisService.getDevis().subscribe((data:Devis[]) => {
-      this.devises = data;
-      console.log(data);
-    });
+   this.getDevises();
+  }
+
+  public getDevises(): void{
+    this.devisService.getDevis().subscribe(
+      (response:Devis[]) => {
+        this.devises = response;
+        console.log(response);
+      });
   }
 }
