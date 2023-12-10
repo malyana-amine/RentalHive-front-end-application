@@ -1,0 +1,63 @@
+<div class="card border-primary mb-3">
+  <div class="card-header bg-primary text-white">Demand Details</div>
+  <div class="card-body" *ngIf="demand">
+    <h5 class="card-title">Demand ID: #{{ demand.id }}</h5>
+    <span class="label" [ngClass]="{
+    'label-danger': demand.status == 'Rejected',
+    'label-success': demand.status == 'Approved',
+    'label-warning': demand.status == 'Pending',}">
+      {{ demand.status }}
+    </span>
+    <hr>
+    <h6>User:</h6>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Username: {{ demand.user.username }}</li>
+      <li class="list-group-item">Email: {{ demand.user.email }}</li>
+      <li class="list-group-item">Role: {{ demand.user.role.name }}</li>
+    </ul>
+    <hr>
+    <h6>Demanded Equipments:</h6>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Equipment</th>
+        <th>Price</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let demandedEquipment of demand.demandedEquipments">
+        <td>{{ demandedEquipment.id }}</td>
+        <td>{{ demandedEquipment.startDate }}</td>
+        <td>{{ demandedEquipment.endDate }}</td>
+        <td>{{ demandedEquipment.equipment.name }} ({{ demandedEquipment.equipment.type.name }})</td>
+        <td>{{ demandedEquipment.equipment.price }}</td>
+      </tr>
+      </tbody>
+    </table>
+    <hr>
+    <h6>Devis:</h6>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Status</th>
+        <th>Total Price</th>
+        <th>Contract</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let devis of demand.devisList">
+        <td>{{ devis.id }}</td>
+        <td>{{ devis.status }}</td>
+        <td>{{ devis.priceTotal }}</td>
+        <td>
+          <a href="{{ devis.contract.file }}" target="_blank">View PDF</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
