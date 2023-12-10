@@ -1,24 +1,47 @@
-<div class="container">
-  <div class="card border-primary mb-3">
-    <div class="card-header bg-primary text-white">devis Details</div>
-    <div class="card-body">
-      <h6>Devis:</h6>
-      <table class="table table-striped">
+<div class="card">
+  <div class="card-header">
+    <a class="btn btn-primary btn-round" routerLink="#">Generate a devis</a>
+    <div class="card-header-right">
+      <ul class="list-unstyled card-option">
+        <li><i class="fa fa-chevron-left"></i></li>
+        <li><i class="fa fa-window-maximize full-card"></i></li>
+        <li><i class="fa fa-minus minimize-card"></i></li>
+        <li><i class="fa fa-times close-card"></i></li>
+      </ul>
+    </div>
+  </div>
+  <div class="card-block table-border-style">
+    <div class="table-responsive">
+      <table class="table table-hover">
         <thead>
         <tr>
-          <th>ID</th>
+          <th>#</th>
+          <th>Total price</th>
           <th>Status</th>
-          <th>Total Price</th>
+          <th></th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let devis of devises">
-          <td>{{ devis.id }}</td>
-          <td>{{ devis.status }}</td>
-          <td>{{ devis.priceTotal }}</td>
+          <th>
+            <a [routerLink]="['/dashboard/devis', devis.id]">{{ devis.id }}</a>
+          </th>
+          <td> $ {{ devis.priceTotal }} </td>
+          <td><span class="label" [ngClass]="{
+          'label-danger': devis.status == 'Rejected',
+          'label-success': devis.status == 'Approved',
+          'label-warning': devis.status == 'Pending',}">
+            {{ devis.status }}
+          </span></td>
+          <td>
+<!--            <span *ngIf="devis.status == 'Pending'">-->
+<!--              <button (click)="updateStatus(devis)"><i class="icofont icofont-check-circled"></i></button>-->
+<!--            </span>-->
+          </td>
         </tr>
         </tbody>
       </table>
     </div>
   </div>
 </div>
+
