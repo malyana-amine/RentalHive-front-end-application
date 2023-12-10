@@ -11,6 +11,7 @@ import { DemandComponent } from './components/demand/table/demand.component';
 import { EquipmentComponent } from './components/equipment/equipment.component';
 import { DemandDetailsComponent } from './components/demand/demand-details/demand-details.component';
 import { DemandFormComponent } from './components/demand/demand-form/demand-form.component';
+import { DevisComponent } from './components/devis/devis.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { DemandFormComponent } from './components/demand/demand-form/demand-form
     EquipmentComponent,
     DemandDetailsComponent,
     DemandFormComponent,
+    DevisComponent,
   ],
   imports: [
     BrowserModule,

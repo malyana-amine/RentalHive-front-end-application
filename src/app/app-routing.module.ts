@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DevisComponent} from "./components/devis/devis.component";
 import { RegistrationComponent } from './components/register-form/register-form.component';
 import {DashboardComponent} from "./pages/dashboard/dashboard.component";
 import {EquipmentComponent} from "./components/equipment/equipment.component";
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: "demand", component: DemandComponent},
       {path: "demand/:id", component: DemandDetailsComponent},
       {path: "demand-form", component: DemandFormComponent},
+      { path: 'devis', component: DevisComponent },
       {path: "", redirectTo: "equipment", pathMatch: "full"}
     ]
   }
