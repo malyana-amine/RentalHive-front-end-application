@@ -1,4 +1,24 @@
-<p>devis works!</p>
-    <div *ngFor="let devis of devises">
-          <p class="m-0"> {{ devis?.id }}</p>
+<div class="container">
+  <div class="card border-primary mb-3">
+    <div class="card-header bg-primary text-white">devis Details</div>
+    <div class="card-body">
+      <h6>Devis:</h6>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Total Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let devis of devises">
+          <td>{{ devis.id }}</td>
+          <td>{{ devis.status }}</td>
+          <td>{{ devis.priceTotal }}</td>
+        </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
+</div>
