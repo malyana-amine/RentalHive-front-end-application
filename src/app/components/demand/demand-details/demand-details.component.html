@@ -54,7 +54,7 @@
         <td>{{ devis.status }}</td>
         <td>{{ devis.priceTotal }}</td>
         <td>
-          <a href="{{ devis.contract.file }}" target="_blank">View PDF</a>
+          <button (click)="downloadPdf(devis.id)">View PDF</button>
         </td>
       </tr>
       </tbody>

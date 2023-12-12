@@ -22,4 +22,14 @@ export class DemandDetailsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
   }
+
+  downloadPdf(contractId: number): void {
+    this._demandService.downloadPdf(contractId).subscribe((data: Blob) => {
+      const pdfData = new URL(window.URL.createObjectURL(data), location.origin);
+      const anchor = document.createElement('a');
+      anchor.href = pdfData.toString();
+      anchor.download = contractId + 'contract.pdf';
+      anchor.click();
+    });
+  }
 }

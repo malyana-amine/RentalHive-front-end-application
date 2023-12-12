@@ -45,6 +45,13 @@ export class DemandService {
     );
   }
 
+  downloadPdf(contractId: number): Observable<any> {
+    return this._http.get("http://localhost:8080/api/contracts/" + contractId, { responseType: 'blob' }).pipe(
+      tap(data => console.log(data)),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = "";
 
